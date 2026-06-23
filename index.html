@@ -1,98 +1,295 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cidadania Digital: O Perigo das Deepfakes</title>
+
+    <title>Consciência Digital | O Perigo das Deepfakes</title>
+
+    <meta name="description"
+        content="Aprenda a identificar deepfakes, combater a desinformação e desenvolver sua cidadania digital.">
+
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
+
+    <!-- HEADER -->
 
     <header>
         <nav class="navbar">
-            <div class="logo">Consciência<span>Digital</span></div>
+
+            <div class="logo">
+                Consciência<span>Digital</span>
+            </div>
+
             <ul class="nav-links">
                 <li><a href="#sobre">O Problema</a></li>
-                <li><a href="#Guia">Como Detectar</a></li>
-                <li><a href="#quiz">Quiz Interativo</a></li>
+                <li><a href="#guia">Como Detectar</a></li>
+                <li><a href="#quiz">Quiz</a></li>
             </ul>
-            <button id="theme-toggle" class="btn-toggle" aria-label="Alternar tema">🌓 Modo Escuro</button>
+
+            <button
+                id="theme-toggle"
+                class="btn-toggle"
+                aria-label="Alternar tema">
+
+                🌙 Modo Escuro
+
+            </button>
+
         </nav>
     </header>
 
+    <!-- CONTEÚDO PRINCIPAL -->
+
     <main>
+
+        <!-- HERO -->
+
         <section id="sobre" class="hero-section">
+
+            <div class="hero-background"></div>
+
             <div class="container hero-container">
+
                 <div class="hero-text">
-                    <h1>Desinformação na Era da IA</h1>
-                    <p>As <strong>Deepfakes</strong> utilizam inteligência artificial para clonar vozes e rostos de forma ultra-realista. Entender essa tecnologia é o primeiro passo para exercer sua cidadania digital e proteger a verdade.</p>
-                    <a href="#quiz" class="btn-primary">Testar Meus Conhecimentos</a>
+
+                    <span class="badge">
+                        Inteligência Artificial & Cidadania Digital
+                    </span>
+
+                    <h1>
+                        Desinformação na Era da IA
+                    </h1>
+
+                    <p>
+                        As <strong>Deepfakes</strong> utilizam inteligência artificial
+                        para criar vídeos, imagens e vozes extremamente realistas.
+                        Entender essa tecnologia é essencial para proteger a verdade,
+                        combater fake news e exercer sua cidadania digital.
+                    </p>
+
+                    <div class="hero-buttons">
+
+                        <a href="#quiz" class="btn-primary">
+                            Testar Meus Conhecimentos
+                        </a>
+
+                        <a href="#guia" class="btn-secondary">
+                            Aprender Agora
+                        </a>
+
+                    </div>
+
                 </div>
+
             </div>
+
         </section>
 
-        <section id="Guia" class="guide-section">
+        <!-- GUIA -->
+
+        <section id="guia" class="guide-section">
+
             <div class="container">
-                <h2>Como Identificar uma Mídia Manipulada?</h2>
-                <p class="subtitle">Fique atento aos pequenos detalhes que os algoritmos de IA ainda têm dificuldade de replicar.</p>
-                
+
+                <h2>
+                    Como Identificar uma Mídia Manipulada?
+                </h2>
+
+                <p class="subtitle">
+                    Fique atento aos pequenos detalhes que os algoritmos de IA
+                    ainda têm dificuldade de reproduzir com perfeição.
+                </p>
+
                 <div class="cards-grid">
-                    <div class="card">
+
+                    <article class="card">
+
                         <h3>👁️ Piscada e Olhar</h3>
-                        <p>Muitas deepfakes piscam de forma não natural ou têm um olhar fixo, sem variações sutis de luz nas pupilas.</p>
-                    </div>
-                    <div class="card">
+
+                        <p>
+                            Muitas deepfakes apresentam piscadas estranhas,
+                            movimentos oculares artificiais ou reflexos incoerentes.
+                        </p>
+
+                    </article>
+
+                    <article class="card">
+
                         <h3>🗣️ Sincronia de Áudio</h3>
-                        <p>Observe se o movimento dos lábios está perfeitamente alinhado com o som e as pausas da fala.</p>
-                    </div>
-                    <div class="card">
+
+                        <p>
+                            Observe se os lábios acompanham exatamente o áudio.
+                            Pequenos atrasos podem indicar manipulação.
+                        </p>
+
+                    </article>
+
+                    <article class="card">
+
                         <h3>🖼️ Bordas e Texturas</h3>
-                        <p>Áreas ao redor do rosto, orelhas e cabelos frequentemente apresentam desfoques ou distorções estranhas.</p>
-                    </div>
+
+                        <p>
+                            Rostos, cabelos, orelhas e fundos costumam apresentar
+                            borrões ou deformações difíceis de perceber rapidamente.
+                        </p>
+
+                    </article>
+
+                    <article class="card">
+
+                        <h3>🔎 Verifique a Fonte</h3>
+
+                        <p>
+                            Sempre procure a notícia em veículos confiáveis antes
+                            de compartilhar qualquer conteúdo impactante.
+                        </p>
+
+                    </article>
+
                 </div>
+
             </div>
+
         </section>
+
+        <!-- QUIZ -->
 
         <section id="quiz" class="quiz-section">
+
             <div class="container quiz-container">
-                <h2>Quiz: Você sabe combater as Fake News de IA?</h2>
-                <p>Responda à questão abaixo para testar sua capacidade crítica.</p>
+
+                <h2>
+                    Quiz: Você sabe combater Fake News geradas por IA?
+                </h2>
+
+                <p>
+                    Responda à pergunta abaixo e descubra seu nível de
+                    consciência digital.
+                </p>
+
+                <!-- Barra de progresso -->
+
+                <div class="progress-bar">
+                    <div class="progress"></div>
+                </div>
 
                 <form id="quiz-form">
+
                     <div class="form-question">
-                        <p class="question-text">Ao receber um vídeo bombástico de uma figura pública fazendo uma declaração absurda, qual deve ser sua primeira atitude?</p>
-                        
+
+                        <p class="question-text">
+
+                            Ao receber um vídeo bombástico de uma figura pública
+                            fazendo uma declaração absurda, qual deve ser sua
+                            primeira atitude?
+
+                        </p>
+
                         <label class="option-label">
-                            <input type="radio" name="quiz-answer" value="errada-1" required>
-                            <span>Compartilhar imediatamente com amigos para alertá-los do perigo.</span>
+
+                            <input
+                                type="radio"
+                                name="quiz-answer"
+                                value="errada-1"
+                                required>
+
+                            <span>
+                                Compartilhar imediatamente com amigos para alertá-los.
+                            </span>
+
                         </label>
-                        
+
                         <label class="option-label">
-                            <input type="radio" name="quiz-answer" value="correta">
-                            <span>Verificar se veículos de imprensa confiáveis ou agências de checagem confirmaram o fato.</span>
+
+                            <input
+                                type="radio"
+                                name="quiz-answer"
+                                value="correta">
+
+                            <span>
+                                Verificar se veículos de imprensa confiáveis ou
+                                agências de checagem confirmaram o fato.
+                            </span>
+
                         </label>
-                        
+
                         <label class="option-label">
-                            <input type="radio" name="quiz-answer" value="errada-2">
-                            <span>Acreditar cegamente, afinal, imagens e vídeos não podem ser manipulados perfeitamente.</span>
+
+                            <input
+                                type="radio"
+                                name="quiz-answer"
+                                value="errada-2">
+
+                            <span>
+                                Acreditar automaticamente porque vídeos não podem
+                                ser manipulados.
+                            </span>
+
                         </label>
+
                     </div>
 
-                    <button type="submit" class="btn-submit">Verificar Resposta</button>
+                    <button
+                        type="submit"
+                        class="btn-submit">
+
+                        Verificar Resposta
+
+                    </button>
+
                 </form>
 
-                <div id="quiz-feedback" class="feedback-box hidden"></div>
+                <div
+                    id="quiz-feedback"
+                    class="feedback-box hidden">
+
+                </div>
+
             </div>
+
         </section>
+
     </main>
 
+    <!-- FOOTER -->
+
     <footer>
+
         <div class="container">
-            <p>&copy; 2026 Consciência Digital. Projeto de Educação Digital para o Ensino Médio.</p>
-            <p>Desenvolvido para fins educacionais contra a desinformação automatizada.</p>
+
+            <p>
+                © 2026 Consciência Digital
+            </p>
+
+            <p>
+                Projeto educativo para conscientização sobre deepfakes,
+                inteligência artificial e combate à desinformação.
+            </p>
+
         </div>
+
     </footer>
 
+    <!-- BOTÃO TOPO -->
+
+    <button
+        id="backToTop"
+        aria-label="Voltar ao topo">
+
+        ↑
+
+    </button>
+
+    <!-- JAVASCRIPT -->
+
     <script src="js/script.js"></script>
+
 </body>
+
 </html>
+```
