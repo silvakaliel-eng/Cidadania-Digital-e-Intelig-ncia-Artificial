@@ -1,333 +1,229 @@
-/* ==========================================================================
-   Variáveis de Ambiente e Temas (Claro/Escuro)
-   ========================================================================== */
-:root {
-    --bg-main: #f8fafc;
-    --bg-card: #ffffff;
-    --text-primary: #0f172a;
-    --text-secondary: #475569;
-    --accent-color: #4f46e5;
-    --accent-hover: #4338ca;
-    --border-color: #e2e8f0;
-    --feedback-success: #10b981;
-    --feedback-error: #ef4444;
-    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+:root{
+    --primary:#4f46e5;
+    --secondary:#7c3aed;
+    --dark:#0f172a;
+    --light:#f8fafc;
+    --card:#ffffff;
 }
 
-[data-theme="dark"] {
-    --bg-main: #0f172a;
-    --bg-card: #1e293b;
-    --text-primary: #f8fafc;
-    --text-secondary: #cbd5e1;
-    --accent-color: #818cf8;
-    --accent-hover: #6366f1;
-    --border-color: #334155;
-    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
 }
 
-/* ==========================================================================
-   Resets e Configurações de Base
-   ========================================================================== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', system-ui, sans-serif;
-    transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+body{
+    font-family:'Segoe UI',sans-serif;
+    background:var(--light);
+    color:#222;
+    transition:.4s;
 }
 
-body {
-    background-color: var(--bg-main);
-    color: var(--text-primary);
-    line-height: 1.6;
+body.dark{
+    background:#020617;
+    color:white;
 }
 
-.container {
-    width: 100%;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
+/* NAVBAR */
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 10%;
+    position:fixed;
+    width:100%;
+    z-index:1000;
+
+    backdrop-filter:blur(15px);
+    background:rgba(255,255,255,.1);
 }
 
-html {
-    scroll-behavior: smooth;
+.logo{
+    font-size:1.6rem;
+    font-weight:bold;
 }
 
-/* ==========================================================================
-   Navegação (Header & Navbar)
-   ========================================================================== */
-header {
-    background-color: var(--bg-card);
-    border-bottom: 1px solid var(--border-color);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: var(--shadow);
+.logo span{
+    color:var(--primary);
 }
 
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 70px;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
+/* HERO */
+
+.hero-section{
+    min-height:100vh;
+
+    display:flex;
+    align-items:center;
+
+    background:
+    linear-gradient(
+        135deg,
+        #4f46e5,
+        #7c3aed
+    );
+
+    color:white;
 }
 
-.logo {
-    font-size: 1.3rem;
-    font-weight: 700;
-    letter-spacing: -0.5px;
+.hero-text{
+    max-width:700px;
 }
 
-.logo span {
-    color: var(--accent-color);
+.hero-text h1{
+    font-size:4rem;
+    margin-bottom:20px;
 }
 
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
+.hero-text p{
+    font-size:1.2rem;
+    line-height:1.7;
 }
 
-.nav-links a {
-    text-decoration: none;
-    color: var(--text-secondary);
-    font-weight: 500;
+/* BOTÕES */
+
+.btn-primary,
+.btn-secondary{
+    display:inline-block;
+    margin-top:20px;
+    padding:14px 28px;
+    border-radius:12px;
+    text-decoration:none;
+    transition:.3s;
 }
 
-.nav-links a:hover {
-    color: var(--accent-color);
+.btn-primary{
+    background:white;
+    color:#4f46e5;
 }
 
-.btn-toggle {
-    background: transparent;
-    border: 1px solid var(--border-color);
-    color: var(--text-primary);
-    padding: 0.5rem 1rem;
-    border-radius: 30px;
-    cursor: pointer;
-    font-size: 0.85rem;
-    font-weight: 600;
+.btn-primary:hover{
+    transform:translateY(-4px);
 }
 
-.btn-toggle:hover {
-    background-color: var(--border-color);
+.btn-secondary{
+    border:2px solid white;
+    color:white;
+    margin-left:10px;
 }
 
-/* ==========================================================================
-   Seção Hero
-   ========================================================================== */
-.hero-section {
-    padding: 5rem 0;
-    background: radial-gradient(circle at top right, rgba(81, 92, 248, 0.08), transparent);
+/* CARDS */
+
+.cards-grid{
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
 }
 
-.hero-text {
-    max-width: 700px;
+.card{
+    background:rgba(255,255,255,.8);
+
+    backdrop-filter:blur(15px);
+
+    padding:25px;
+
+    border-radius:20px;
+
+    transition:.4s;
 }
 
-.hero-text h1 {
-    font-size: 2.8rem;
-    line-height: 1.2;
-    margin-bottom: 1.5rem;
-    color: var(--text-primary);
+.card:hover{
+    transform:
+    translateY(-10px)
+    scale(1.03);
+
+    box-shadow:
+    0 20px 40px rgba(0,0,0,.15);
 }
 
-.hero-text p {
-    font-size: 1.15rem;
-    color: var(--text-secondary);
-    margin-bottom: 2rem;
+/* QUIZ */
+
+.quiz-container{
+    max-width:800px;
+    margin:auto;
 }
 
-.btn-primary {
-    display: inline-block;
-    background-color: var(--accent-color);
-    color: #ffffff !important;
-    text-decoration: none;
-    padding: 0.8rem 1.8rem;
-    border-radius: 6px;
-    font-weight: 600;
-    box-shadow: 0 4px 10px rgba(79, 70, 229, 0.2);
+.option-label{
+    display:block;
+
+    margin:15px 0;
+
+    padding:18px;
+
+    border-radius:12px;
+
+    background:#f1f5f9;
+
+    cursor:pointer;
+
+    transition:.3s;
 }
 
-.btn-primary:hover {
-    background-color: var(--accent-hover);
+.option-label:hover{
+    background:#dbeafe;
 }
 
-/* ==========================================================================
-   Seção de Recursos (Cards com Flexbox)
-   ========================================================================== */
-.guide-section {
-    padding: 4rem 0;
-    background-color: var(--bg-card);
-    border-top: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color);
+.feedback-box{
+    margin-top:20px;
+    padding:20px;
+    border-radius:12px;
 }
 
-.guide-section h2, .quiz-section h2 {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
+.correct{
+    background:#dcfce7;
+    color:#166534;
 }
 
-.subtitle {
-    color: var(--text-secondary);
-    margin-bottom: 3rem;
+.incorrect{
+    background:#fee2e2;
+    color:#991b1b;
 }
 
-.cards-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
+/* PROGRESS BAR */
+
+.progress-bar{
+    height:10px;
+    background:#ddd;
+    border-radius:20px;
+    overflow:hidden;
+    margin-bottom:25px;
 }
 
-.card {
-    background-color: var(--bg-main);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    padding: 2rem;
-    flex: 1 1 calc(33.333% - 1rem);
-    min-width: 280px;
-    box-shadow: var(--shadow);
+.progress{
+    height:100%;
+    width:0%;
+    background:linear-gradient(
+        90deg,
+        #4f46e5,
+        #7c3aed
+    );
+
+    transition:.5s;
 }
 
-.card:hover {
-    transform: translateY(-4px);
-    border-color: var(--accent-color);
-    transition: transform 0.2s ease, border-color 0.2s ease;
-}
+/* BOTÃO TOPO */
 
-.card h3 {
-    margin-bottom: 1rem;
-    font-size: 1.25rem;
-}
+#backToTop{
+    position:fixed;
+    right:25px;
+    bottom:25px;
 
-/* ==========================================================================
-   Seção de Quiz e Formulários
-   ========================================================================== */
-.quiz-section {
-    padding: 5rem 0;
-}
+    width:55px;
+    height:55px;
 
-.quiz-container {
-    max-width: 700px !important;
-}
+    border:none;
+    border-radius:50%;
 
-#quiz-form {
-    background-color: var(--bg-card);
-    border: 1px solid var(--border-color);
-    padding: 2.5rem;
-    border-radius: 10px;
-    box-shadow: var(--shadow);
-    margin-top: 2rem;
-}
+    background:#4f46e5;
+    color:white;
 
-.form-question {
-    margin-bottom: 2rem;
-}
+    cursor:pointer;
 
-.question-text {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 1.5rem;
-}
+    display:none;
 
-.option-label {
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
-    background-color: var(--bg-main);
-    border: 1px solid var(--border-color);
-    padding: 1rem;
-    border-radius: 6px;
-    margin-bottom: 1rem;
-    cursor: pointer;
-}
+    font-size:20px;
 
-.option-label:hover {
-    border-color: var(--accent-color);
-}
-
-.option-label input[type="radio"] {
-    margin-top: 0.25rem;
-    accent-color: var(--accent-color);
-}
-
-.btn-submit {
-    width: 100%;
-    background-color: var(--accent-color);
-    color: white;
-    border: none;
-    padding: 1rem;
-    font-size: 1rem;
-    font-weight: 600;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
-.btn-submit:hover {
-    background-color: var(--accent-hover);
-}
-
-/* Estado de Feedback */
-.feedback-box {
-    margin-top: 1.5rem;
-    padding: 1.25rem;
-    border-radius: 6px;
-    font-weight: 500;
-    text-align: center;
-}
-
-.feedback-box.success {
-    background-color: rgba(16, 185, 129, 0.15);
-    color: var(--feedback-success);
-    border: 1px solid var(--feedback-success);
-}
-
-.feedback-box.error {
-    background-color: rgba(239, 68, 68, 0.15);
-    color: var(--feedback-error);
-    border: 1px solid var(--feedback-error);
-}
-
-.hidden {
-    display: none !important;
-}
-
-/* ==========================================================================
-   Footer
-   ========================================================================== */
-footer {
-    background-color: var(--bg-card);
-    border-top: 1px solid var(--border-color);
-    padding: 2.5rem 0;
-    text-align: center;
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-}
-
-footer p + p {
-    margin-top: 0.5rem;
-}
-
-/* ==========================================================================
-   Media Queries (Responsividade Avançada)
-   ========================================================================== */
-@media (max-width: 768px) {
-    .navbar {
-        padding: 0 1rem;
-    }
-    
-    .nav-links {
-        display: none; /* Em projetos reais usaríamos menu hambúrguer, mas preservando o clean layout desktop/mobile */
-    }
-
-    .hero-text h1 {
-        font-size: 2rem;
-    }
-
-    #quiz-form {
-        padding: 1.5rem;
-    }
+    box-shadow:0 5px 20px rgba(0,0,0,.2);
 }
