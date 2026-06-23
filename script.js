@@ -1,62 +1,119 @@
-document.addEventListener('DOMContentLoaded', () => {
-    
-    // ==========================================================================
-    // 1. Controle de Acessibilidade / Modo Escuro
-    // ==========================================================================
-    const themeToggle = document.getElementById('theme-toggle');
-    
-    // Verifica se o usuário já tinha preferência salva
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        themeToggle.textContent = '☀️ Modo Claro';
+// TEMA
+
+const toggle =
+document.getElementById("theme-toggle");
+
+toggle.addEventListener("click", () => {
+
+    document.body.classList.toggle("dark");
+
+    toggle.textContent =
+    document.body.classList.contains("dark")
+    ? "☀️ Modo Claro"
+    : "🌙 Modo Escuro";
+
+});
+
+// QUIZ
+
+const form =
+document.getElementById("quiz-form");
+
+const feedback =
+document.getElementById("quiz-feedback");
+
+const progress =
+document.querySelector(".progress");
+
+form.addEventListener("submit",(e)=>{
+
+    e.preventDefault();
+
+    const resposta =
+    document.querySelector(
+        'input[name="quiz-answer"]:checked'
+    );
+
+    progress.style.width = "100%";
+
+    feedback.classList.remove(
+        "hidden",
+        "correct",
+        "incorrect"
+    );
+
+    if(resposta.value === "correta"){
+
+        feedback.classList.add("correct");
+
+        feedback.innerHTML = `
+        🎉 Excelente!
+        Você verificou a informação antes de compartilhar.
+        `;
+
+    }else{
+
+        feedback.classList.add("incorrect");
+
+        feedback.innerHTML = `
+        ❌ Atenção!
+        Compartilhar sem verificar fortalece a desinformação.
+        `;
     }
 
-    themeToggle.addEventListener('click', () => {
-        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-        
-        if (isDark) {
-            document.documentElement.removeAttribute('data-theme');
-            themeToggle.textContent = '🌓 Modo Escuro';
-            localStorage.setItem('theme', 'light');
-        } else {
-            document.documentElement.setAttribute('data-theme', 'dark');
-            themeToggle.textContent = '☀️ Modo Claro';
-            localStorage.setItem('theme', 'dark');
+});
+
+// ANIMAÇÃO AO ROLAR
+
+const observer =
+new IntersectionObserver(entries => {
+
+    entries.forEach(entry => {
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add("show");
+
         }
+
     });
 
-    // ==========================================================================
-    // 2. Validador Dinâmico do Quiz Anti-Desinformação
-    // ==========================================================================
-    const quizForm = document.getElementById('quiz-form');
-    const feedbackBox = document.getElementById('quiz-feedback');
+});
 
-    quizForm.addEventListener('submit', (event) => {
-        // Impede o recarregamento padrão do formulário
-        event.preventDefault();
+document
+.querySelectorAll(".card")
+.forEach(card => {
 
-        // Captura o valor selecionado via FormData API
-        const formData = new FormData(quizForm);
-        const userAnswer = formData.get('quiz-answer');
+    card.classList.add("hidden-card");
 
-        // Escopos de Mensagens armazenados em variáveis locais antes do output (Exigência do Nível 4)
-        const msgSucesso = "🎯 Excelente! Você demonstrou uma postura cidadã. Checar informações em fontes confiáveis e agências de checagem quebra o ciclo de propagação das Deepfakes.";
-        const msgErro = "⚠️ Atenção! Compartilhar sem checar ou presumir que vídeos são reais ajuda a disseminar desinformação automatizada por IA. Sempre investigue antes!";
+    observer.observe(card);
 
-        // Reset de classes utilitárias
-        feedbackBox.className = 'feedback-box';
+});
 
-        // Processamento lógico da resposta
-        if (userAnswer === 'correta') {
-            feedbackBox.textContent = msgSucesso;
-            feedbackBox.classList.add('success');
-        } else {
-            feedbackBox.textContent = msgErro;
-            feedbackBox.classList.add('error');
-        }
-        
-        // Torna visível o feedback manipulado no DOM
-        feedbackBox.classList.remove('hidden');
+// VOLTAR AO TOPO
+
+const btn =
+document.getElementById("backToTop");
+
+window.addEventListener("scroll",()=>{
+
+    if(window.scrollY > 400){
+
+        btn.style.display="block";
+
+    }else{
+
+        btn.style.display="none";
+
+    }
+
+});
+
+btn.addEventListener("click",()=>{
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
     });
+
 });
